@@ -8,6 +8,6 @@ public class SfgPetClinicApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SfgPetClinicApplication.class, args);
-    }
+    }//end of main method
 
-}
+}//end of class SfgPetClinicApplication
