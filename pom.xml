@@ -43,6 +43,6 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/GeorgiDinov/sfg-pet-clinic.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
-
 </project>
