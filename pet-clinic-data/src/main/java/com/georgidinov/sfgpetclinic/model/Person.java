@@ -3,7 +3,7 @@ package com.georgidinov.sfgpetclinic.model;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Person {
+public class Person extends BaseEntity {
 
     //== fields ==
     @Getter
