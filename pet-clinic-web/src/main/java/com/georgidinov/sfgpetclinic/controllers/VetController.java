@@ -10,4 +10,5 @@ public class VetController {
     public String vets(){
         return "vets/index";
     }
-}
+
+}//end of class VetController
