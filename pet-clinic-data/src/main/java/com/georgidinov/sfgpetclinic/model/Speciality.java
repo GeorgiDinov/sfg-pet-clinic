@@ -3,10 +3,10 @@ package com.georgidinov.sfgpetclinic.model;
 import lombok.Getter;
 import lombok.Setter;
 
-public class PetType extends BaseEntity {
+public class Speciality extends BaseEntity {
 
     @Getter
     @Setter
-    private String name;
+    private String description;
 
-}//end of class PetType
+}//end of class Speciality
