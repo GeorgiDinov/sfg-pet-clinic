@@ -2,11 +2,13 @@ package com.georgidinov.sfgpetclinic.services.map;
 
 import com.georgidinov.sfgpetclinic.model.Pet;
 import com.georgidinov.sfgpetclinic.services.PetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
