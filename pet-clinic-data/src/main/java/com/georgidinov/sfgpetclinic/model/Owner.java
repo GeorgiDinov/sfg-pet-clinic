@@ -1,6 +1,9 @@
 package com.georgidinov.sfgpetclinic.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.CascadeType;
@@ -14,9 +17,12 @@ import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
+
 
     //== fields ==
     @Column(name = "address")
@@ -30,5 +36,16 @@ public class Owner extends Person {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
+
+    //== constructors ==
+    @Builder
+    public Owner(Long id, String firstName, String lastName,
+    String address, String city, String telephone) {
+        super(id, firstName, lastName);
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+    }//end of constructor
+
 
 }//end of class Owner
