@@ -1,2 +1,4 @@
+
+[![CircleCI](https://app.circleci.com/pipelines/github/GeorgiDinov/sfg-pet-clinic.svg?style=svg)](<https://app.circleci.com/pipelines/github/GeorgiDinov/sfg-pet-clinic)
 # sfg-pet-clinic
-Representation of the Spring Pet Clininc application
+Spring Pet Clinic
