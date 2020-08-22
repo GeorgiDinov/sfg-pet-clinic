@@ -79,5 +79,4 @@ class OwnerServiceMapTest {
         assertNull(smith);
     }
 
-
 }//end of class OwnerServiceMapTest

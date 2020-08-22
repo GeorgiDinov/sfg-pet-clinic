@@ -73,7 +73,6 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         super.deleteById(aLong);
     }
 
-    //todo: needs to be implemented
     @Override
     public Owner findByLastName(String lastName) {
         return this.findAll()
