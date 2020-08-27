@@ -38,31 +38,25 @@ public class OwnerController {
 
 
     //== public methods ==
-    @RequestMapping({"", "/", "/index", "/index.html"})
-    public String listOwners(Model model) {
-        model.addAttribute("owners", this.ownerService.findAll());
-        return "owners/index";
-    }//end of method listOwners
-
     @RequestMapping({"/find"})
     public String findOwners(Model model) {
         model.addAttribute("owner", Owner.builder().build());
         return "owners/findOwners";
     }
 
-    @GetMapping("/owners")
+    @GetMapping
     public String processFindForm(Owner owner, BindingResult result, Model model) {
 
         if (owner.getLastName() == null) {
             owner.setLastName("");
         }
-        List<Owner> ownersList = ownerService.findAllByLastNameLike(owner.getLastName());
+        List<Owner> ownersList = ownerService.findAllByLastNameLike("%" + owner.getLastName() + "%");
 
         if (ownersList.isEmpty()) {
             result.rejectValue("lastName", "notFound", "not found");
             return "owners/findOwners";
         } else if (ownersList.size() == 1) {
-            owner = ownersList.iterator().next();
+            owner = ownersList.get(0);
             String redirection = "/owners/" + owner.getId();
             return "redirect:" + redirection;
         } else {
