@@ -48,4 +48,25 @@ public class Owner extends Person {
     }//end of constructor
 
 
+    //== public methods ==
+
+    public Pet getPet(String name){
+        return this.getPet(name, false);
+    }
+
+    public Pet getPet(String name, boolean ignoreNew) {
+        name = name.toLowerCase();
+        for (Pet pet : pets) {
+            if (!ignoreNew || !pet.isNew()) {
+                String compName = pet.getName();
+                compName = compName.toLowerCase();
+                if (compName.equals(name)) {
+                    return pet;
+                }
+            }
+        }
+        return null;
+    }
+
+
 }//end of class Owner

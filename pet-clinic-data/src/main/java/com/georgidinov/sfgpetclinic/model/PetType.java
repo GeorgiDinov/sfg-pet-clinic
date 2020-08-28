@@ -15,14 +15,20 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "types")
 public class PetType extends BaseEntity {
 
-
     //== fields ==
     @Column(name = "name")
     private String name;
+
+
+    //== constructors ==
+    @Builder
+    public PetType(Long id, String name) {
+        super(id);
+        this.name = name;
+    }//end of constructor
 
 }//end of class PetType
