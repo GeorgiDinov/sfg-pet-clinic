@@ -31,4 +31,10 @@ public class PetType extends BaseEntity {
         this.name = name;
     }//end of constructor
 
+    //== public methods ==
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
 }//end of class PetType

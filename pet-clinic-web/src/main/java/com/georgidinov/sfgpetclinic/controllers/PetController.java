@@ -37,7 +37,8 @@ public class PetController {
 
     //== constructors ==
     @Autowired
-    public PetController(OwnerService ownerService, PetService petService, PetTypeService petTypeService) {
+    public PetController(OwnerService ownerService,
+                         PetService petService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.petService = petService;
         this.petTypeService = petTypeService;
@@ -45,7 +46,7 @@ public class PetController {
 
 
     //== init data binder ==
-    @InitBinder
+    @InitBinder("owner")
     public void initOwnerBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
@@ -70,6 +71,7 @@ public class PetController {
     public String initCreationForm(Owner owner, Model model) {
         Pet pet = new Pet();
         owner.getPets().add(pet);
+        pet.setOwner(owner);
         model.addAttribute("pet", pet);
         return VIEW_PETS_CREATE_OR_UPDATE_FORM;
     }
