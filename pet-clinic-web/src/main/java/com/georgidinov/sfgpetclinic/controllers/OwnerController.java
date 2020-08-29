@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("/owners")
@@ -85,7 +85,7 @@ public class OwnerController {
     }
 
     @PostMapping("/new")
-    public String processCreationForm(@Validated Owner owner, BindingResult result) {
+    public String processCreationForm(@Valid Owner owner, BindingResult result) {
         if (result.hasErrors()) {
             return VIES_OWNER_CREATE_OR_UPDATE_FORM;
         }
@@ -102,7 +102,7 @@ public class OwnerController {
     }
 
     @PostMapping("/{ownerId}/edit")
-    public String processUpdateOwnerForm(@Validated Owner owner, BindingResult result,
+    public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result,
                                          @PathVariable Long ownerId) {
         if (result.hasErrors()) {
             return VIES_OWNER_CREATE_OR_UPDATE_FORM;

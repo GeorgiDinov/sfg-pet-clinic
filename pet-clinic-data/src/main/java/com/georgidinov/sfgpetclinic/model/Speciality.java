@@ -10,8 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Getter
-@Setter
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -19,7 +18,8 @@ import javax.persistence.Table;
 @Table(name = "specialities")
 public class Speciality extends BaseEntity {
 
-
+    @Getter
+    @Setter
     @Column(name = "description")
     private String description;
 

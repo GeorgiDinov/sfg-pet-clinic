@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -38,6 +39,7 @@ public class Pet extends BaseEntity {
     private Owner owner;
 
     @Column(name = "birth_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
@@ -54,9 +56,7 @@ public class Pet extends BaseEntity {
         this.owner = owner;
         this.birthDate = birthDate;
 
-        if (visits == null || visits.size() > 0) {
-            this.visits = visits;
-        }
+        this.visits = visits != null && visits.size() > 0 ? visits : new HashSet<>();
 
     }//end of constructor
 

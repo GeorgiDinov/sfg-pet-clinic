@@ -63,18 +63,7 @@ public class DataLoader implements CommandLineRunner {
         dog.setName("Cat");
         PetType savedCatPetType = this.petTypeService.save(cat);
 
-        //== creating specialities ==
-        Speciality radiology = new Speciality();
-        radiology.setDescription("Radiology");
-        Speciality savedRadiology = this.specialityService.save(radiology);
 
-        Speciality surgery = new Speciality();
-        radiology.setDescription("Surgery");
-        Speciality savedSurgery = this.specialityService.save(surgery);
-
-        Speciality dentistry = new Speciality();
-        radiology.setDescription("Dentistry");
-        Speciality savedDentistry = this.specialityService.save(dentistry);
 
         //== creating owner ==
         Owner owner1 = new Owner();
@@ -122,6 +111,19 @@ public class DataLoader implements CommandLineRunner {
 
 
         System.out.println("Loaded Owners...");
+
+        //== creating specialities ==
+        Speciality radiology = new Speciality();
+        radiology.setDescription("Radiology");
+        Speciality savedRadiology = this.specialityService.save(radiology);
+
+        Speciality surgery = new Speciality();
+        surgery.setDescription("Surgery");
+        Speciality savedSurgery = this.specialityService.save(surgery);
+
+        Speciality dentistry = new Speciality();
+        dentistry.setDescription("Dentistry");
+        Speciality savedDentistry = this.specialityService.save(dentistry);
 
 
         //== creating vets ==

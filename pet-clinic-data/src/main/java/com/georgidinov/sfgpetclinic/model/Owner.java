@@ -40,17 +40,20 @@ public class Owner extends Person {
     //== constructors ==
     @Builder
     public Owner(Long id, String firstName, String lastName,
-    String address, String city, String telephone) {
+                 String address, String city, String telephone, Set<Pet> pets) {
         super(id, firstName, lastName);
         this.address = address;
         this.city = city;
         this.telephone = telephone;
+        if (pets != null) {
+            this.pets = pets;
+        }
     }//end of constructor
 
 
     //== public methods ==
 
-    public Pet getPet(String name){
+    public Pet getPet(String name) {
         return this.getPet(name, false);
     }
 
